@@ -62,7 +62,17 @@ TreeNode * LRrotation ( TreeNode * p ){
 }
 
 TreeNode * RLrotation ( TreeNode * p ){
-    return  NULL;
+    TreeNode * pr = p -> right;
+        TreeNode * prl = pr -> left;
+
+        p -> right = prl -> left;
+        pr -> left =  prl ->  right;
+        prl -> right = pr;
+        prl -> left = Node;
+        if( root == Node){
+            root = prl;
+        }
+        return prl;
 }
 
 TreeNode * RRrotation ( TreeNode * p ){
