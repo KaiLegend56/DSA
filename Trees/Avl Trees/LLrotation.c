@@ -68,8 +68,8 @@ TreeNode * RLrotation ( TreeNode * p ){
         p -> right = prl -> left;
         pr -> left =  prl ->  right;
         prl -> right = pr;
-        prl -> left = Node;
-        if( root == Node){
+        prl -> left = p;
+        if( root == p ){
             root = prl;
         }
         return prl;
