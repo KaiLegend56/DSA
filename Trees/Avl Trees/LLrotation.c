@@ -37,6 +37,7 @@ TreeNode * LLrotation ( TreeNode * p ){
 
     p -> height = NodeHeight(p);
     pl -> height = NodeHeight(pl);
+    plr -> height = NodeHeight( plr);
 
     if( root == p )
         root = pl;
@@ -53,6 +54,8 @@ TreeNode * LRrotation ( TreeNode * p ){
     plr -> lchild = pl;
 
     p ->  height = NodeHeight(p);
+    pl -> height = NodeHeight(pl);
+    plr -> height = NodeHeight(plr);
 
     if( p == root)
         root = plr;
@@ -62,13 +65,18 @@ TreeNode * LRrotation ( TreeNode * p ){
 }
 
 TreeNode * RLrotation ( TreeNode * p ){
-    TreeNode * pr = p -> right;
-        TreeNode * prl = pr -> left;
+    TreeNode * pr = p -> rchild;
+        TreeNode * prl = pr -> lchild;
 
-        p -> right = prl -> left;
-        pr -> left =  prl ->  right;
-        prl -> right = pr;
-        prl -> left = p;
+        p -> rchild = prl -> lchild;
+        pr -> lchild =  prl ->  rchild;
+        prl -> rchild = pr;
+        prl -> lchild = p;
+
+        pr -> height = NodeHeight(pr);
+        p -> height = NodeHeight(p);
+        prl -> height = NodeHeight(prl);
+
         if( root == p ){
             root = prl;
         }
@@ -84,8 +92,9 @@ TreeNode * RRrotation ( TreeNode * p ){
 
     pr -> height = NodeHeight(pr);
     p -> height = NodeHeight(p);
+    prl -> height = NodeHeight(prl);
 
-    if( root == p){
+    if( root == p ){
         root = pr;
     }
     return pr;
@@ -129,8 +138,8 @@ TreeNode * insertSorted( TreeNode * root, int key){
 }
 
 int main(){
-    root = insertSorted(root,15);
-    insertSorted(root,10);
-    insertSorted(root,13);
-    printf("%d %d %d", root -> val, root -> lchild -> val, root -> rchild -> val);
+    root = insertSorted(root,10);
+    insertSorted(root,20);
+    insertSorted(root,15);
+    printf("%d %d %d", root -> lchild -> val, root -> val, root -> rchild -> val);
 }
