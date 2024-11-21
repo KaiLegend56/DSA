@@ -36,6 +36,11 @@ void DFS( int G[][7], int start, int end){
 
 }
 
+void DFSstk( int G[][7]){
+    int stack[100];
+    int Top = -1;
+}
+
 int main(){
             int G[7][7]={{0,0,0,0,0,0,0},
             {0,0,1,1,0,0,0},
